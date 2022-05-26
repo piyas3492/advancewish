@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap");
+:root {
+  --theme-yellow: #e8e521;
+  --theme-black: #212121;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-size: 18px;
+  background: var(--theme-black);
+  font-family: "Roboto Condensed", sans-serif;
+}
+.text-yellow {
+  color: var(--theme-yellow);
+}
+.bg-yellow {
+  background-color: var(--theme-yellow);
+}
+.text-black {
+  color: var(--theme-black);
+}
+.bg-black {
+  background-color: var(--theme-black);
+}
+.form-control,
+.form-control:focus {
+  box-shadow: none;
+  border-color: unset;
+  background-color: transparent;
+  color: var(--theme-yellow);
+}
+.button_yellow_style,
+.button_yellow_style:focus,
+.button_yellow_style:hover {
+  box-shadow: none !important;
+  border-color: var(--theme-yellow);
+  border-radius: 4px;
+  background-color: var(--theme-yellow);
+  height: 50px;
+}
+
+.button_yellow_style.disabled,
+.button_yellow_style:disabled {
+  background-color: #ccc;
+  cursor: not-allowed !important;
+  border: none;
+}
+.signupSec {
+  margin-top: 10vh;
+}
+svg {
+  display: inline-flex;
+  vertical-align: middle !important;
+}
+table {
+  vertical-align: middle;
+}
+.offcanvas-bottom {
+  width: 100% !important;
+  height:100%;
+}
