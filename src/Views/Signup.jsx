@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import axios from "../Components/Axios";
 import {
   Container,
   Row,

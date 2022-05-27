@@ -17,7 +17,7 @@ import {
 import { InfoCircle, Stopwatch, XCircle } from "react-bootstrap-icons";
 import { ToastContainer, toast, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
-import axios from "axios";
+import axios from "../Components/Axios";
 import Moment from "react-moment";
 const Dashboard = () => {
   var listcount = 0;

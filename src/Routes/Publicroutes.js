@@ -4,7 +4,7 @@ import Signup from "../Views/Signup";
 const Publicroutes = [
   {
     path: "/",
-    component: Home,
+    component: Login,
   },
   {
     path: "/signup",
