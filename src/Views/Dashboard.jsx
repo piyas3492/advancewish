@@ -280,53 +280,42 @@ const Dashboard = () => {
                   </Button>
                 </Col>
               </Row>
-              <Table
-                responsive
-                borderless
-                className="text-white mt-3 small table-sm"
-                size="sm"
-              >
-                <thead className="bg-yellow text-dark small">
-                  <tr>
-                    <td>#</td>
-                    <td>To</td>
-                    <td>Subject</td>
-                    <td>Send Date</td>
-                    <td>Status</td>
-                    <td>Action</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  {listLoading ? (
-                    listLoading.map((li, key) => (
-                      <tr key={key} className="small">
-                        <td>{(listcount += 1)}</td>
-                        <td>{li.to_email}</td>
-                        <td>{li.to_subject}</td>
-                        <td>
-                          <Moment format="DD-MM-yyyy hh:mm a">
-                            {li.to_send_date_time_iso}
-                          </Moment>
-                        </td>
-                        <td>
-                          {li.to_status === "Pending" ? (
-                            <Badge pill bg="warning" text="dark">
-                              Pending
-                            </Badge>
-                          ) : (
-                            <Badge pill bg="success" text="white">
-                              Sent
-                            </Badge>
-                          )}
-                        </td>
-                        <td>
-                          <Button variant="warning" size="sm" title="View Info">
-                            <InfoCircle />
-                          </Button>
+              <Row>
+                {listLoading ? (
+                  listLoading.map((li, key) => (
+                    <Col xs={12} lg={4} key={key} className="px-3 text-start">
+                      <Card bg="dark" className="w-100 my-2 small">
+                        <Card.Body>
+                          <Card.Title className="text-start small">
+                            {li.to_subject}
+                          </Card.Title>
+                          <Card.Subtitle className="mb-2 text-muted text-start">
+                            Time :
+                            <Moment format="DD-MM-yyyy hh:mm a">
+                              {li.to_send_date_time_iso}
+                            </Moment>
+                          </Card.Subtitle>
+                          <Card.Subtitle className="mb-2 text-muted text-start">
+                            To : {li.to_email}
+                          </Card.Subtitle>
+                          <Card.Text className="text-start text-muted text-start">
+                            Message : <br /> {li.to_message}
+                          </Card.Text>
+                          <p>
+                            {li.to_status === "Pending" ? (
+                              <Badge pill bg="warning" text="dark">
+                                Pending
+                              </Badge>
+                            ) : (
+                              <Badge pill bg="success" text="white">
+                                Sent
+                              </Badge>
+                            )}
+                          </p>
                           <Button
                             variant="danger"
                             size="sm"
-                            className="ms-1"
+                            className=""
                             title="Remove"
                             onClick={(e) => {
                               if (window.confirm("Remove wish?") === true) {
@@ -334,18 +323,18 @@ const Dashboard = () => {
                               }
                             }}
                           >
-                            <XCircle />
+                            <XCircle /> REMOVE
                           </Button>
-                        </td>
-                      </tr>
-                    ))
-                  ) : (
-                    <tr>
-                      <td colSpan="6">Loading please wait...</td>
-                    </tr>
-                  )}
-                </tbody>
-              </Table>
+                        </Card.Body>
+                      </Card>
+                    </Col>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="6">Loading please wait...</td>
+                  </tr>
+                )}
+              </Row>
             </Card>
           </Col>
         </Row>
